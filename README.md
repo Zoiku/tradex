@@ -1,12 +1,8 @@
-# final-Zoiku
-final-Zoiku created by GitHub Classroom
-
-Project Title: TradEx
+Project Title: Tradex
 
 Project Description: The aim of this web application is to increase awareness of investment securties listed on the Ghana Stock Exchange, to particularly new investors. 
 With a customizable stock index where users track their most performing stocks, users are able to create their own stock indexes with information about the indirec and indirect values of their indexes.
 
-Hosting on Azure: http://zoiku-tradex.uksouth.cloudapp.azure.com/
 
 How to Build:
 1. (THE API) The main resource for the project was the Ghana Stock Exchange APi.
