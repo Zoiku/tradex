@@ -12,8 +12,8 @@ $(window).on('load', () => {
         }
     })
 
-    $('.add-stock').click(() => {
-        if(confirm("Do you want to add stock?")){
+    $('.deleteAll').click(() => {
+        if(confirm("Are you sure you want to delete all stocks? Process is irreversible")){
             return true;
         } else {
             return false;

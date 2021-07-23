@@ -5,5 +5,5 @@
         <div class="circle"></div>
     </div>
     
-    <p>Loading</p>
+    <p><small>This might take a while...</small></p>
 </div>

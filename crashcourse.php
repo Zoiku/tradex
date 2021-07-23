@@ -16,6 +16,8 @@ if (!isset($_SESSION['username'])) {
     <title>Crash Course</title>
 
     <link rel="stylesheet" href="./Css/style.css">
+    <link rel="icon" href="./Assets/favicon_io/favicon.ico">
+
     <script src="Jquery/jquery-3.5.1.js"></script>
 </head>
 
@@ -46,33 +48,76 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <!-- A crash course grid where introductory videos on Investments are displayed to the user -->
-        <div id="crash-course-grid">
-            <div id="video-1" class="video">
-                <iframe src="https://www.youtube.com/embed/ZCFkWDdmXG8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="video-resources">
+            <div class="videos-row" id="row1">
+                <div class="video-section" id="collection1">
+                    <p class="video-section-header">
+                        What is a Stock ?
+                    </p>
+
+                    <div class="video-collection-row">
+                        <iframe src="https://www.youtube.com/embed/ZCFkWDdmXG8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/o4jfBC0AgIM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="video-collection-row">
+                        <iframe src="https://www.youtube.com/embed/fn3y1hNVgA4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="video-section" id="collection2">
+                    <p class="video-section-header">
+                        How the Market Works ?
+                    </p>
+
+                    <div class="video-collection-row">
+                        <iframe src="https://www.youtube.com/embed/p7HKvqRI_Bo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/F3QpgXBtDeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="video-collection-row">
+                        <iframe src="https://www.youtube.com/embed/CMQLdJa64Wk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dmqoqVwFopE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
 
-            <div id="video-2" class="video">
-                <iframe src="https://www.youtube.com/embed/Sbp_t4guM8g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="videos-row" id="row2">
+                <div class="video-section" id="collection3">
+                    <p class="video-section-header">
+                        What are Indexes ?
+                    </p>
+
+                    <div class="video-collection-row">
+                        <iframe src="https://www.youtube.com/embed/WA3Jhvm4W9k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/VJQ6-DDr3jA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="video-collection-row">
+                        <iframe src="https://www.youtube.com/embed/y-RGEos-lus" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    
+
+                </div>
+
+                <div class="video-section" id="collection4">
+                    <p class="video-section-header">
+                        The Ghanaian Stock Market
+                    </p>
+
+                    <div class="video-collection-row">
+                        <iframe src="https://www.youtube.com/embed/GEOTrWwuNZ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
 
-            <div id="video-3" class="video">
-                <iframe src="https://www.youtube.com/embed/WA3Jhvm4W9k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
 
-            <div id="video-4" class="video">
-                <iframe src="https://www.youtube.com/embed/CMQLdJa64Wk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div id="video-5" class="video">
-                <iframe src="https://www.youtube.com/embed/GEOTrWwuNZ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
         </div>
     </section>
 
     <!-- A footer included to allow for simplicity -->
     <?php include_once './Footer/footer.php'; ?>
-
-    <script src='./JS/nav.js'></script>
 </body>
 
 </html>

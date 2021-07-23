@@ -13,6 +13,7 @@ session_start();
 
     <!-- Link to Css file -->
     <link rel="stylesheet" href="./Css/style.css">
+    <link rel="icon" href="./Assets/favicon_io/favicon.ico">
 
     <!-- Linking file to JQuery -->
     <script defer src="./JQuery/jquery-3.5.1.js"></script>

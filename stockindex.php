@@ -6,6 +6,8 @@ if (!isset($_SESSION['username'])) {
     header("Location: ./Login/logout.php");
 }
 
+    $username = $_SESSION['username'];
+
 // To improve user experience, a loading page is displayed while the the program fetches data from an API
 include_once './Loading-Page/loading-page.php';
 ?>
@@ -16,10 +18,12 @@ include_once './Loading-Page/loading-page.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Stock Index</title>
+    <title>Dashboard</title>
 
     <!-- CSS style sheet link -->
     <link rel="stylesheet" href="./Css/style.css">
+    <link rel="icon" href="./Assets/favicon_io/favicon.ico">
+
 
     <!-- Script links to Jquery and script.js -->
     <script src="./JQuery/jquery-3.5.1.js"></script>
@@ -49,81 +53,92 @@ include_once './Loading-Page/loading-page.php';
             </div>
 
             <div class="s-i-page-header">
-                <strong><?php echo $_SESSION['name']; ?>'s DASHBOARD</strong>
+                <strong>WELCOME TO YOUR DASHBOARD, <?php echo $_SESSION['name'] ?></strong>
                 <hr>
             </div>
 
             <div class="stock-index-dashboard">
                 <div class="dash-item" id="numStocks">
                     <div class="dash-item-header">Stocks</div>
-                    <div class="dash-item-value">
-                        <?php
-                        require("./Database-Connection/connection.php");
-                        $username = $_SESSION['username'];
-                        $num_of_stocks = "SELECT * FROM `myindex` WHERE `username` = '$username'";
-                        $run_num_of_stocks = mysqli_query($conn, $num_of_stocks);
-                        $num_stocks_value = mysqli_num_rows($run_num_of_stocks) > 0 ? mysqli_num_rows($run_num_of_stocks) : 0;
-                        echo $num_stocks_value;
-                        ?>
-                    </div>
+                    <div class="dash-item-value" id="num-stocks">0</div>
                 </div>
 
                 <div class="dash-item" id="directIndex">
                     <div class="dash-item-header">Direct Index</div>
-                    <div class="dash-item-value">0.00</div>
+                    <div class="dash-item-value" id="direct-index">0.00</div>
                 </div>
 
                 <div class="dash-item" id="indirectIndex">
                     <div class="dash-item-header">Indirect Index</div>
-                    <div class="dash-item-value">0.00</div>
+                    <div class="dash-item-value" id="indirect-index">0.00</div>
                 </div>
             </div>
 
             <div class="securities-table" id="s-i-page-table">
                 <table id="my-custom-stocks">
                     <?php
-                    require("./Database-Connection/connection.php");
-                    $username = $_SESSION['username'];
-                    $user_stks = "SELECT `symbol` FROM `myindex` WHERE `username` = '$username'";
-                    $run_user_stks = mysqli_query($conn, $num_of_stocks);
-                    $has_stks = mysqli_num_rows($run_user_stks) > 0 ? true : false;
+                        require("./Database-Connection/connection.php");
+                        $username = $_SESSION['username'];
+                        $user_stks = "SELECT `symbol` FROM `myindex` WHERE `username` = '$username'";
+                        $run_user_stks = mysqli_query($conn, $user_stks);
+                        $has_stks = mysqli_num_rows($run_user_stks) > 0 ? true : false;
 
-                    if ($has_stks) {
-                        echo 
-                        "
-                            <caption>$_SESSION[name]'s Stock Index </caption>
+                        if ($has_stks) {
+                            $_SESSION['available'] = true;
 
-                            <tr class='table-heading'>
-                                <th>Symbol</th>
-                                <th>Company</th>
-                                <th>Price / GHc</th>
-                                <th></th>
-                            </tr>
-                        ";
+                            echo <<<_STRING
+                                <caption>My Stock Index </caption>
 
-                        while ($rows = mysqli_fetch_assoc($run_user_stks)) {
-                            echo ("
+                                <tr class='table-heading'>
+                                    <th>Symbol</th>
+                                    <th>Company</th>
+                                    <th>Price / GHc</th>
+                                    <th></th>
+                                </tr>
+                            _STRING;
+
+                            while ($rows = mysqli_fetch_assoc($run_user_stks)) {
+                                echo <<<_STRING
+                                        <script>
+                                            fetch('https://dev.kwayisi.org/apis/gse/equities/$rows[symbol]')
+                                                .then(response => response.json())
+                                                .then(stockdata => {
+                                                    num_stocks = num_stocks + 1;
+                                                    direct_index += stockdata.price;
+                                                    custom_stocks_table.innerHTML += "<tr><td>" + stockdata.name + "</td><td class='table-row-industry'>" + stockdata.company.name + "</td><td class='stock-price'>" + stockdata.price + "</td><td><a href='stockindex.php?symbol_to_delete=" + stockdata.name + "' class='delete-stock'><img class='action-button' src='./Assets/delete_button.png' alt='img'></a></td></tr>";
+                                                    
+                                                    stocks_DOM.innerHTML = num_stocks ;
+                                                    direct_index_DOM.innerHTML = direct_index.toFixed(2);
+                                                    indirect_index_DOM.innerHTML = ( direct_index / num_stocks ).toFixed(2);
+                                                })
+                                        </script>
+                                _STRING;
+                            }
+                        } else {
+                            $_SESSION['available'] = false;
+
+                            echo
+                            "
                                 <script>
-                                    fetch('https://dev.kwayisi.org/apis/gse/equities/$rows[symbol]')
-                                        .then(response => response.json())
-                                        .then(stockdata => {
-                                            custom_stocks_table.innerHTML += `<tr><td>stockdata.name</td><td class='table-row-industry'>stockdata.company.name</td><td class='stock-price'>stockdata.price</td><td><a class='delete-stock'><img class='action-button' src='./Assets/delete_button.png' alt='img'></a></td></tr>`;
-                                        })
-                                    </script>
-                                ");
+                                    document.getElementById('my-custom-stocks').style.outline = 'none';
+                                </script>
+                                <p class='empty-index-toolkit'> Haven't a clue what these concepts mean? Go to <a href='./crashcourse.php'>Resources</a> for a quick tour, or read more <a href='https://www.thebalance.com/how-stock-indices-are-calculated-1031353' target='__blank'>Here</a>. </br> If not, scroll down to add your first stock to your index! </p>
+                            ";
                         }
-                    }else {
-                        echo 
-                        "
-                            <script>
-                                document.getElementById('my-custom-stocks').style.outline = 'none';
-                            </script>
-                            
-                            <p class='empty-index-toolkit'> Haven't a clue what these concepts mean? Go to <a href='./crashcourse.php'>Resources</a> for a quick tour. </br> If not, scroll down to add your first stock to your index ! </p>
-                        ";
-                    }
                     ?>
                 </table>
+
+                <p class="deleteAll">
+                    <?php 
+                        if(isset($_SESSION['available'])) {
+                            if($_SESSION['available']){
+                                echo <<<_String
+                                    <a href="./stockindex.php?removeall=yes">Remove all</a>
+                                _String;
+                            }
+                        } 
+                    ?>
+                </p>
             </div>
         </section>
 
@@ -144,28 +159,47 @@ include_once './Loading-Page/loading-page.php';
             </div>
         </section>
 
-        <?php
-        if (isset($_GET['symbol_to_insert'])) {
-            require("./Database-Connection/connection.php");
+        <?php require("./Database-Connection/connection.php");
+            if (isset($_GET['symbol_to_insert'])) {
+                $username = $_SESSION['username'];
+                $stk = $_GET['symbol_to_insert'];
 
-            $username = $_SESSION['username'];
-            $stk = $_GET['symbol_to_insert'];
+                $initial_check = "SELECT * FROM myindex WHERE `username` = '$username' AND `symbol` = '$stk'";
+                $run_initial_check = mysqli_query($conn, $initial_check);
+                $stock_exists = mysqli_num_rows($run_initial_check) > 0 ? true : false;
 
-            $initial_check = "SELECT * FROM myindex WHERE `username` = '$username' AND `symbol` = '$stk'";
-            $run_initial_check = mysqli_query($conn, $initial_check);
-            $stock_exists = mysqli_num_rows($run_initial_check) > 0 ? true : false;
+                if (!$stock_exists) {
+                    $add_stock = "INSERT INTO `myindex`(`username`, `symbol`) VALUES('$username','$stk')";
+                    $run_sql = mysqli_query($conn, $add_stock);
 
-            if (!$stock_exists) {
-                $add_stock = "INSERT INTO `myindex`(`username`, `symbol`) VALUES('$username','$stk')";
-                $run_sql = mysqli_query($conn, $add_stock);
-
-                if ($run_sql) {
-                    echo "<script>alert('Added new stock')</script>";
+                    if ($run_sql) {
+                        echo "<script>location.href = './stockindex.php';</script>";
+                    }
+                } else {
+                    echo "<script>alert('Stock already exists')</script>";
                 }
-            } else {
-                echo "<script>alert('Stock already exists')</script>";
+            } 
+            else if (isset($_GET['symbol_to_delete'])) {
+                $symbol = $_GET['symbol_to_delete'];
+                $username = $_SESSION['username'];
+
+                // After retrieving the symbole to delete, a query including username and symbol pair is used to delete the stock the user selected.
+                $myindex_delete_sql = "DELETE FROM `myindex` WHERE username='$username' and symbol = '$symbol';";
+                $myindex_delete_result = mysqli_query($conn, $myindex_delete_sql);
+
+                if ($myindex_delete_result) {
+                    echo "<script> location.href = './stockindex.php'; </script>";
+                }
+            } 
+            else if(isset($_GET['removeall'])) {
+                $username = $_SESSION['username'];
+                $delete_all_sql = "DELETE FROM `myindex` WHERE username='$username'";
+                $delete_all_result = mysqli_query($conn, $delete_all_sql);
+
+                if ($delete_all_result) {
+                    echo "<script> location.href = './stockindex.php'; </script>";
+                }
             }
-        }
         ?>
 
         <!-- A footer file  -->
