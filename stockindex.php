@@ -22,7 +22,7 @@ include_once './Loading-Page/loading-page.php';
 
     <!-- CSS style sheet link -->
     <link rel="stylesheet" href="./Css/style.css">
-    <link rel="icon" href="./Assets/favicon_io/favicon.ico">
+    <link rel="icon" href="/Assets/favicon_io/favicon.ico">
 
 
     <!-- Script links to Jquery and script.js -->
@@ -122,7 +122,7 @@ include_once './Loading-Page/loading-page.php';
                                 <script>
                                     document.getElementById('my-custom-stocks').style.outline = 'none';
                                 </script>
-                                <p class='empty-index-toolkit'> Haven't a clue what these concepts mean? Go to <a href='./crashcourse.php'>Resources</a> for a quick tour, or read more <a href='https://www.thebalance.com/how-stock-indices-are-calculated-1031353' target='__blank'>Here</a>. </br> If not, scroll down to add your first stock to your index! </p>
+                                <p class='empty-index-toolkit'> Haven't a clue what these concepts mean? Go to <a href='./crashcourse.php'>Resources</a> for a quick tour, or read more <a href='https://www.thebalance.com/how-stock-indices-are-calculated-1031353' target='_blank'>Here</a>. </br> If not, scroll down to add your first stock to your index! </p>
                             ";
                         }
                     ?>
