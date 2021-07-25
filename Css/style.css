@@ -337,7 +337,6 @@ table {
   transition: all 0.3s ease;
   font-size: 14px;
   outline: 1px solid rgba(0, 0, 0, 0.276);
-  display: none !important;
 }
 
 #s-i-page-table table {
@@ -556,7 +555,7 @@ footer a {
   }
 
   table {
-    display: block;
+    display: table;
   }
 }
 
