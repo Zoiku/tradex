@@ -337,6 +337,7 @@ table {
   transition: all 0.3s ease;
   font-size: 14px;
   outline: 1px solid rgba(0, 0, 0, 0.276);
+  display: none !important;
 }
 
 #s-i-page-table table {
@@ -538,3 +539,24 @@ footer a {
   font-size: larger;
   font-weight: bolder;
 }
+
+.pageunavailable {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  z-index: 300;
+  position: fixed;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 1150px) {
+  .pageunavailable {
+    display: none;
+  }
+
+  table {
+    display: block;
+  }
+}
+

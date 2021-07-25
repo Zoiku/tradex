@@ -5,6 +5,8 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: ./Login/logout.php");
 }
+
+include_once './pageunavailable.php';
 ?>
 
 <!DOCTYPE html>

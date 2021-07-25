@@ -8,8 +8,12 @@ if (!isset($_SESSION['username'])) {
 
     $username = $_SESSION['username'];
 
+
+
 // To improve user experience, a loading page is displayed while the the program fetches data from an API
 include_once './Loading-Page/loading-page.php';
+
+include_once './pageunavailable.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +26,7 @@ include_once './Loading-Page/loading-page.php';
 
     <!-- CSS style sheet link -->
     <link rel="stylesheet" href="./Css/style.css">
-    <link rel="icon" href="/Assets/favicon_io/favicon.ico">
+    <link rel="icon" href="./Assets/favicon_io/favicon.ico">
 
 
     <!-- Script links to Jquery and script.js -->

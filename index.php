@@ -1,6 +1,8 @@
 <?php
 session_start();
 // PHP Session starts to check if SESSION VARIBALE USERNAME if set
+
+include_once './pageunavailable.php';
 ?>
 
 <!DOCTYPE html>
