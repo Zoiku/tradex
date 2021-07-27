@@ -180,7 +180,12 @@ include_once './pageunavailable.php';
                         echo "<script>location.href = './stockindex.php';</script>";
                     }
                 } else {
-                    echo "<script>alert('Stock already exists')</script>";
+                    echo <<<_String
+                                <script>
+                                    alert('Stock already exists'); 
+                                    location.href = './stockindex.php';
+                                </script>"
+                            _String;
                 }
             } 
             else if (isset($_GET['symbol_to_delete'])) {
