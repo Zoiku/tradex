@@ -32,42 +32,44 @@ session_start();
         </ul>
     </nav>
 
-    <!-- Form container for the log in form -->
-    <div class="form-container" id="login-form-container">
-        <form action="login-verification.php" id="form" method='POST'>
-            <header>Sign in</header>
+    <div class="form-container-wrapper">
+        <!-- Form container for the log in form -->
+        <div class="form-container" id="login-form-container">
+            <form action="login-verification.php" id="form" method='POST'>
+                <header>Sign in</header>
 
-            <!-- Field classes where user input would be taken  -->
-            <div class="field">
-                <div class="input-field">
-                    <input name='username' id='username' type="text" autocomplete="off" placeholder='&#xf007;' required>
-                    <label class='label-name'>
-                        <span class='content-name'>Username</span>
-                    </label>
+                <!-- Field classes where user input would be taken  -->
+                <div class="field">
+                    <div class="input-field">
+                        <input name='username' id='username' type="text" autocomplete="off" placeholder='&#xf007;' required>
+                        <label class='label-name'>
+                            <span class='content-name'>Username</span>
+                        </label>
+                    </div>
+                    <span id="error-1" class="error-message">Invalid Username</span>
                 </div>
-                <span id="error-1" class="error-message">Invalid Username</span>
-            </div>
 
-            <div class="field">
-                <div class="input-field">
-                    <input name='password' id='password' type="password" autocomplete="off" placeholder='&#xf023;' required>
-                    <label class='label-name'>
-                        <span class='content-name'>Password</span>
-                    </label>
+                <div class="field">
+                    <div class="input-field">
+                        <input name='password' id='password' type="password" autocomplete="off" placeholder='&#xf023;' required>
+                        <label class='label-name'>
+                            <span class='content-name'>Password</span>
+                        </label>
+                    </div>
                 </div>
-            </div>
 
-            <!-- An authentication class with a button of type submit for users to log in -->
-            <div class="authentication">
-                <button name='submit-btn' type='submit' class='button' id='login-button'>Login</button>
-            </div>
-        </form>
+                <!-- An authentication class with a button of type submit for users to log in -->
+                <div class="authentication">
+                    <button name='submit-btn' type='submit' class='button' id='login-button'>Sign in</button>
+                </div>
+            </form>
 
-        <!-- A Sign-Up/Login class which with code to redirect the user to create an account if required -->
-        <div id="create-account" class="signup-login">
-            <hr>
-            <div>
-                <p>New here? <a href="../SignUp/signup.php">Create account</a></p>
+            <!-- A Sign-Up/Login class which with code to redirect the user to create an account if required -->
+            <div id="create-account" class="signup-login">
+                <hr>
+                <div>
+                    <p>New here? <a class="link-custom" href="../SignUp/signup.php">Create account</a></p>
+                </div>
             </div>
         </div>
     </div>

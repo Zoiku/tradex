@@ -26,68 +26,70 @@
 
         <ul class="nav-links">
             <li><a href="../index.php">Home</a></li>
-            <li class='active-page'><a href="login.php">Login</a></li>
+            <li class='active-page'><a href="../Login/login.php">Login</a></li>
         </ul>
     </nav>
 
-    <!-- Form container for the Sign up form -->
-    <div class="form-container" id="signup-form-container">
-        <form id="form" method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validation()">
-            <header>Sign up</header>
+    <div class="form-container-wrapper">
+        <!-- Form container for the Sign up form -->
+        <div class="form-container" id="signup-form-container">
+            <form id="form" method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validation()">
+                <header>Sign up</header>
 
-            <!-- Field classes where user input would be taken  -->
-            <div class="field">
-                <div class="input-field">
-                    <input name='name' id='name' type="text" autocomplete="off" placeholder='&#xf007;' required>
-                    <label class='label-name'>
-                        <span class='content-name'>Full Name</span>
-                    </label>
+                <!-- Field classes where user input would be taken  -->
+                <div class="field">
+                    <div class="input-field">
+                        <input name='name' id='name' type="text" autocomplete="off" placeholder='&#xf007;' required>
+                        <label class='label-name'>
+                            <span class='content-name'>Full Name</span>
+                        </label>
+                    </div>
+                    <span id="error-1" class="error-message">Name length must be between 8-30 characters</span>
                 </div>
-                <span id="error-1" class="error-message">Name length must be between 8-30 characters</span>
-            </div>
 
-            <div class="field">
-                <div class="input-field">
-                    <input name='username' id='username' type="text" autocomplete="off" placeholder='&#xf007;' required>
-                    <label class='label-name'>
-                        <span class='content-name'>Username</span>
-                    </label>
+                <div class="field">
+                    <div class="input-field">
+                        <input name='username' id='username' type="text" autocomplete="off" placeholder='&#xf007;' required>
+                        <label class='label-name'>
+                            <span class='content-name'>Username</span>
+                        </label>
+                    </div>
+                    <span id="error-2" class="error-message">Username taken</span>
                 </div>
-                <span id="error-2" class="error-message">Username taken</span>
-            </div>
 
-            <div class="field">
-                <div class="input-field">
-                    <input name='password' id='password' type="password" autocomplete="off" placeholder='&#xf023;' required>
-                    <label class='label-name'>
-                        <span class='content-name'>Password</span>
-                    </label>
+                <div class="field">
+                    <div class="input-field">
+                        <input name='password' id='password' type="password" autocomplete="off" placeholder='&#xf023;' required>
+                        <label class='label-name'>
+                            <span class='content-name'>Password</span>
+                        </label>
+                    </div>
+                    <span id="error-3" class="error-message">Password length must between 8-30 characters with at least one special and a capital letter</span>
                 </div>
-                <span id="error-3" class="error-message">Password length must between 8-30 characters with at least one special and a capital letter</span>
-            </div>
 
-            <div class="field">
-                <div class="input-field">
-                    <input name='re-password' id='re-password' type="password" autocomplete="off" placeholder='&#xf023;' required>
-                    <label class='label-name'>
-                        <span class='content-name'>Confirm Password</span>
-                    </label>
+                <div class="field">
+                    <div class="input-field">
+                        <input name='re-password' id='re-password' type="password" autocomplete="off" placeholder='&#xf023;' required>
+                        <label class='label-name'>
+                            <span class='content-name'>Confirm Password</span>
+                        </label>
+                    </div>
+                    <span id="error-4" class="error-message">Password mismatch</span>
                 </div>
-                <span id="error-4" class="error-message">Password mismatch</span>
-            </div>
 
-            <!-- An authentication class with a button of type submit for users to log in and a link to a terms and condition page-->
-            <div class="authentication">
-                <button name='submit-btn' type='submit' class='button' id='signup-button'>Get Started</button>
-                <!-- <p>By clicking this button you are agreeing to all <a href="#">terms and conditions</a></p> -->
-            </div>
-        </form>
+                <!-- An authentication class with a button of type submit for users to log in and a link to a terms and condition page-->
+                <div class="authentication">
+                    <button name='submit-btn' type='submit' class='button' id='signup-button'>Get Started</button>
+                    <!-- <p>By clicking this button you are agreeing to all <a href="#">terms and conditions</a></p> -->
+                </div>
+            </form>
 
-        <!-- A Sign-Up/Login class which with code to redirect the user to log into account if that user already has an existing account -->
-        <div id="login-account" class="signup-login">
-            <hr>
-            <div>
-                <p>Already own an account? <a href="../Login/login.php">Login</a></p>
+            <!-- A Sign-Up/Login class which with code to redirect the user to log into account if that user already has an existing account -->
+            <div id="login-account" class="signup-login">
+                <hr>
+                <div>
+                    <p>Already own an account? <a class="link-custom" href="../Login/login.php">Login</a></p>
+                </div>
             </div>
         </div>
     </div>
