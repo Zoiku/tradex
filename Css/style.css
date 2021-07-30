@@ -529,16 +529,39 @@ footer a {
   width: 35vh;
   margin: 0vh 5vh;
   padding: 2vh;
-  outline: 1px solid #000;
+  outline: 1px solid rgba(150, 148, 148, 0.534);
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
-  top: 5%;
-  height: 95%;
+  height: 100%;
 }
 
-.dash-item:hover {
-  top: 0%;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  opacity: 0;
+  background-color: rgb(216, 169, 51);
+  color: #fff;
+  transition: all 0.3s ease;
+  font-size: small;
+  padding: 15px 10px;
+}
+
+.overlay a {
+  color: #fff;
+}
+
+.overlay p {
+  font-size: 18px;
+  padding: 3px 0;
+}
+
+.dash-item:hover .overlay {
+  height: 100%;
+  opacity: 1;
 }
 
 .dash-item-value {
@@ -548,6 +571,8 @@ footer a {
   font-size: larger;
   font-weight: bolder;
 }
+
+
 
 .pageunavailable {
   height: 100%;
@@ -568,4 +593,3 @@ footer a {
     display: table;
   }
 }
-
