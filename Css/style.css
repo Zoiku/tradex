@@ -538,12 +538,12 @@ footer a {
 
 .overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   height: 0;
   width: 100%;
   opacity: 0;
-  background-color: rgb(216, 169, 51);
+  background-color: rgb(221, 183, 86);
   color: #fff;
   transition: all 0.3s ease;
   font-size: small;
