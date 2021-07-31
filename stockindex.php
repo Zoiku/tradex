@@ -66,15 +66,14 @@ include_once './pageunavailable.php';
 
                     <div class="overlay">
                         <header>
-                            what is a <br><p>STOCK?</p>
-                            <br>
+                            what is a <br><p>STOCK?</p><br>
                         </header>
 
                         A stock is a type of investment that represents an ownership share in a company.
                         Investors buy stocks that they think will go up in value over time
                         <br><br>
 
-                        <a href="https://www.nerdwallet.com/article/investing/what-is-a-stock">Read more here</a>
+                        <a target="_blank" href="https://www.nerdwallet.com/article/investing/what-is-a-stock">Read more here</a>
                     </div>
                 </div>
 
@@ -84,15 +83,14 @@ include_once './pageunavailable.php';
 
                     <div class="overlay">
                         <header>
-                            calculating <br><p>DIRECT INDEX ?</p>
-                            <br>
+                            calculating <br><p>DIRECT INDEX ?</p><br>
                         </header>
 
                         The direct index is the sum of all stock prices in an index.
                         A stock index might consist of 25 individual stocks. Their prices could be added together (e.g., price of stock #1 + price of stock #2 + ... = price of a stock index)
                         <br><br>
 
-                        <a href="https://www.thebalance.com/how-stock-indices-are-calculated-1031353">Read more here</a>
+                        <a target="_blank" href="https://www.thebalance.com/how-stock-indices-are-calculated-1031353">Read more here</a>
                     </div>
                 </div>
 
@@ -103,15 +101,14 @@ include_once './pageunavailable.php';
                     <div class="overlay">
                         <header>
                             calculating <br>
-                            <p>INDIRECT INDEX ?</p>
-                            <br>
+                            <p>INDIRECT INDEX ?</p><br>
                         </header>
 
                         While there are several ways of calculating Indirect Index,
                         here, it is the average of all stock prices in the index.
                         <br><br>
 
-                        <a href="https://www.thebalance.com/how-stock-indices-are-calculated-1031353">Read more here</a>
+                        <a target="_blank" href="https://www.thebalance.com/how-stock-indices-are-calculated-1031353">Read more here</a>
                     </div>
                 
                 </div>
