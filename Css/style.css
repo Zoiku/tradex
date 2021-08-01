@@ -538,7 +538,7 @@ footer a {
 
 .overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   height: 0;
   width: 100%;
@@ -571,8 +571,6 @@ footer a {
   font-size: larger;
   font-weight: bolder;
 }
-
-
 
 .pageunavailable {
   height: 100%;
