@@ -497,8 +497,8 @@ iframe:hover {
 }
 
 .deleteAll a {
-  text-decoration: none;
-  color: rgba(255, 0, 0, 0.66);
+  text-decoration: underline;
+  color: #000;
 }
 
 footer {
@@ -530,7 +530,6 @@ footer a {
   margin: 0vh 5vh;
   padding: 2vh;
   outline: 1px solid rgba(150, 148, 148, 0.534);
-  cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
   height: 100%;
@@ -543,20 +542,20 @@ footer a {
   height: 0;
   width: 100%;
   opacity: 0;
-  background-color: rgb(221, 183, 86);
-  color: #fff;
+  background-color: #fff;
+  color: #999;
   transition: all 0.3s ease;
   font-size: small;
   padding: 15px 10px;
+  line-height: 17px;
 }
 
 .overlay a {
-  color: #fff;
+  color: #999;
 }
 
 .overlay p {
   font-size: 18px;
-  padding: 3px 0;
 }
 
 .dash-item:hover .overlay {
@@ -572,22 +571,30 @@ footer a {
   font-weight: bolder;
 }
 
-.pageunavailable {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  place-items: center;
-  z-index: 300;
-  position: fixed;
-  background-color: #fff;
+.unavailable-screen-res {
+  display: none;
 }
 
-@media screen and (min-width: 1150px) {
-  .pageunavailable {
+.available-screen-res {
+  display: block;
+}
+
+
+@media screen and (max-width: 1150px) {
+  .unavailable-screen-res {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    background-color: #fff;
+    z-index: 4000;
+    position: absolute;
+    font-size: small;
+  }
+
+  .available-screen-res {
     display: none;
   }
 
-  table {
-    display: table;
-  }
 }
