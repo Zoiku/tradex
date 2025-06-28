@@ -1,7 +1,7 @@
 Project Title: Tradex
 
 Project Description: The aim of this web application is to increase awareness of investment securties listed on the Ghana Stock Exchange, to particularly new investors. 
-With a customizable stock index where users track their most performing stocks, users are able to create their own stock indexes with information about the indirec and indirect values of their indexes.
+With a customizable stock index where users track their most performing stocks, users are able to create their own stock indexes with information about the direct and indirect values of their indexes.
 
 
 How to Build:
